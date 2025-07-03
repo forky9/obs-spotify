@@ -1,66 +1,66 @@
-# obs-spotify
+#obs-spotify
 
 🎵 SPOTIFY NOW PLAYING OVERLAY SETUP (FULL INSTRUCTIONS)
 
 ✅ Install Node.js:
-- Go to https://nodejs.org
-- Click the green “LTS” button to download.
-- Install it with default settings (make sure “Add to PATH” is checked).
-- After installing, press the Windows key, type "PowerShell", and open it.
-- Type to check versions: node -v  and  npm -v
-- If you see version numbers, you’re ready.
+- Go to https://nodejs.org and download the “LTS” version.
+- Install with default settings (make sure “Add to PATH” is checked).
+- Open PowerShell and run:
+  node -v
+  npm -v
+- If both show version numbers, you're ready.
 
-📁 Create Your Project Folder:
-- Open PowerShell.
-- Type: mkdir spotify-overlay
-- Then: cd spotify-overlay
+📁 Create Project Folder:
+- In PowerShell:
+  mkdir spotify-overlay
+  cd spotify-overlay
 
-📦 Initialize Node.js Project:
-- Run: npm init -y
-- This creates a package.json with default settings.
+📦 Initialize Project:
+- Run:
+  npm init -y
 
-📚 Install Required Libraries:
-- Run: npm install express socket.io spotify-web-api-node open
+📚 Install Packages:
+- Run:
+  npm install express socket.io spotify-web-api-node open
 
-🧠 Create Server File (spotify.js):
-- Open File Explorer.
-- Navigate to your spotify-overlay folder.
-- Right-click > New > Text Document.
-- Rename it to spotify.js (remove .txt).
-- Open spotify.js in Notepad or your code editor.
-- Paste the full server code (the one I gave you with Spotify keys).
-- IMPORTANT: Replace 'YOUR_CLIENT_ID' and 'YOUR_CLIENT_SECRET' with your Spotify developer app credentials.
-- Save and close.
+🧠 Create spotify.js Server File:
+- In your project folder, create a file named spotify.js.
+- Paste the full Spotify server code I gave you.
+- Replace 'YOUR_CLIENT_ID' and 'YOUR_CLIENT_SECRET' with your Spotify credentials.
+- Save the file.
 
-🌐 Create Public Folder & Overlay HTML:
-- Inside spotify-overlay, create a folder named 'public'.
-- Inside 'public', create a new file overlay.html.
-- Open overlay.html and paste the full overlay HTML code I gave you.
-- Save and close.
+🌐 Create Overlay HTML:
+- Inside your project folder, create a folder named public.
+- Inside public, create overlay.html.
+- Paste the full overlay HTML code I gave you.
+- Save the file.
 
-🎯 Setup Spotify Developer App:
+🎯 Spotify Developer Setup:
 - Go to https://developer.spotify.com/dashboard/applications
 - Create a new app.
-- Set Redirect URI to: http://127.0.0.1:8888/callback
-- Copy your Client ID and Client Secret.
-- Paste them in spotify.js where indicated.
+- Set Redirect URI to:
+  http://127.0.0.1:8888/callback
+- Copy Client ID and Client Secret.
+- Paste them into spotify.js where indicated.
 
 ▶️ Run the Server:
-- Back in PowerShell inside spotify-overlay folder, run:
+- In PowerShell, inside your project folder, run:
   node spotify.js
-- This will auto-open your browser to the Spotify login page.
-- Log in and authorize the app.
-- Then overlay.html page will open automatically showing the current song.
+- Your browser will open the Spotify login page automatically.
+- Log in and authorize.
+- The overlay page will open automatically showing current song info.
 
-🧪 Test It:
-- Play a song on your Spotify app.
-- Your overlay page should update every 10 seconds with song info and cover art.
-- Text scrolls if long.
-- The overlay page can be captured/added in your streaming software.
+🖥️ Add Overlay to OBS:
+- Open OBS Studio.
+- Add a new Browser Source.
+- Set URL to:
+  http://127.0.0.1:8888/overlay.html
+- Adjust width and height to fit your layout.
+- Make sure "Shutdown source when not visible" is unchecked for continuous updates.
 
 🛑 To Stop the Server:
-- In PowerShell, press Ctrl + C.
+- Press Ctrl + C in PowerShell.
 
-DONE! 🎉 Your Spotify Now Playing overlay is ready to use and stream with.
+DONE! 🎉 Your Spotify Now Playing overlay is ready to stream.
 
 From — Forky999
