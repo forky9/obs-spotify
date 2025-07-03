@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify Now Playing Overlay</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+    #container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 12px;
+      border-radius: 8px;
+      max-width: 320px;
+    }
+    #cover {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #000;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    #song {
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="cover" src="" alt="Album cover" style="display:none;" />
+    <div id="song">Waiting for song...</div>
+  </div>
+
+  <script>
+    const socket = io();
+    const songEl = document.getElementById('song');
+    const coverEl = document.getElementById('cover');
+
+    socket.on('song', data => {
+      songEl.textContent = data.song;
+      if (data.coverUrl) {
+        coverEl.src = data.coverUrl;
+        coverEl.style.display = 'block';
+      } else {
+        coverEl.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
