@@ -14,8 +14,8 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: '8812d0ae342c4e19900c81684719bdab',
-  clientSecret: '8ea24c0c7bb542cd903851dca2ad51ac',
+  clientId: 'CLIENT_ID',
+  clientSecret: 'CLIENT_SECRET',
   redirectUri: `http://127.0.0.1:${PORT}/callback`,
 });
 
