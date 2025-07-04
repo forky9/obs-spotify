@@ -12,13 +12,19 @@
 
 📁 Create Project Folder:
 - In terminal:
-  mkdir spotify-overlay
-  cd spotify-overlay
+  'mkdir spotify-overlay' then
+  'cd spotify-overlay'
+
+  Go to this pc:
+  -users
+  -click on ur name and get soptify-overly(the file u just made)
+  -copy the file path and go to ur teminal by pressing 'Win + R' and type cmd and press enter.
+- type cd "THE_PATH_TO_THE_FILE_U_COPIED" enter.
 
 📦 Initialize Project:
 - Run:
   npm init -y
-
+THEN:
 📚 Install Packages:
 - Run:
   npm install express socket.io spotify-web-api-node open
