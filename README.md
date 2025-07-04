@@ -11,7 +11,7 @@
 - If both show version numbers, you're ready.
 
 📁 Create Project Folder:
-- In PowerShell:
+- In terminal:
   mkdir spotify-overlay
   cd spotify-overlay
 
